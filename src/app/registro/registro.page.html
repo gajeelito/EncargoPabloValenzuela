@@ -1,0 +1,37 @@
+<ion-header >
+  <ion-navbar>
+    <ion-toolbar class="background-color-blue">
+      <ion-title text-center> Registro de Usuario <ion-icon name="cloud-done-outline"></ion-icon></ion-title>
+    </ion-toolbar>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+
+    <ion-content>
+      <form [formGroup]="formRegistro" > 
+        <ion-item>
+          <ion-input placeholder="Ingresa tu nombre" type="text" formControlName="nombre" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Ingresa tu email" type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Ingresa tu password" type="password" formControlName="pass"></ion-input>
+        </ion-item>
+        <br>
+          <ion-button expand="full" shape="round" (click)="postDatos()" [disabled]=formRegistro.invalid  >Regístrate</ion-button>
+          <ion-button expand="full" shape="round" color="success" (click)= "volver()" ><ion-icon name="arrow-back-outline"></ion-icon>Volver</ion-button>
+          <div class="alert" *ngIf="mensaje">
+
+            {{mensaje}}
+          </div>
+        
+        
+      </form>
+
+      <br>
+      <img src="/assets/persona.webp" alt="">
+      </ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar class="background-color-blue">
+
+    <ion-title>Actualizacion Datos usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-content>
+    <ion-card>
+      <form [formGroup]="formact" > 
+        <ion-item>
+          <ion-input placeholder="Ingresa tu nuevo nombre" type="text" formControlName="nombre" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Ingresa tu  nueva email" type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Ingresa tu nueva contraseña" type="password" formControlName="pass"></ion-input>
+        </ion-item>
+        <br>
+        <ion-button expand="full" shape="round" (click)="putUser()" [disabled]=formact.invalid >Regístrate</ion-button>
+        <ion-button expand="full" shape="round" color="danger" (click)="showConfirm()"  >Eliminar usuario</ion-button>
+        <ion-button expand="full" shape="round" color="success" (click)= "volver()" ><ion-icon name="arrow-back-outline"></ion-icon>Volver</ion-button>
+        <div class="alert" *ngIf="mensaje">
+          {{mensaje}}
+        </div>
+      
+    </form>
+  </ion-card>
+    </ion-content>

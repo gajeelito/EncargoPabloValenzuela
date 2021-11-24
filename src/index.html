@@ -18,7 +18,22 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 </head>
+<script type="module">
+  import { loadingController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+  window.loadingController = loadingController;
+</script>
+<script>
+  async function MuestraMensajeCarga() {
+    const loading = await loadingController.create({
+      message: 'Espere mientras iniciamos sesión',
+      duration: 150
+    });
 
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    
+  }
+</script>
 <body>
   <app-root></app-root>
 </body>
